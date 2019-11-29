@@ -316,20 +316,48 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">New Rental Frams</h1>
+          <h1 class="h3 mb-4 text-gray-800">Fram Lists</h1>
+          <p class="mb-4">Query is:  </p>
 
-          <div class="row">
+                  <!-- DataTales private farm Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">DataTables Example
 
-            <div class="col-lg-6">
-
-              <!-- Circle Buttons -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Private farm</h6>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                  <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                <div class="card-body">
-                  <p>Use Font Awesome Icons (included with this theme package) along with the circle buttons as shown in the examples below!</p>
-                  
+              </h6>
+            </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Farm_No</th>
+                      <th>Farm_Name</th>
+                      <th>Farm_Soil</th>
+                      <th>Farm_Scale</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <th>4snal</th>
+                      <th>사스날</th>
+                      <th>1047478844</th>
+                      <th>서울</th>
+                      </tr>
                   
               </div>
             </div>
@@ -337,7 +365,7 @@
               <!-- Brand Buttons -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Public farm</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Public Farms</h6>
                 </div>
                 <div class="card-body">
                   <p>Google and Facebook buttons are available featuring each company's respective brand color. They are used on the user login and registration pages.</p>
