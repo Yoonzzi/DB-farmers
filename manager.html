@@ -417,46 +417,6 @@
 
 
 
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">    
-                  <h6 class="m-0 font-weight-bold text-primary">Mananer Reviews
-                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                      <form class="form-inline mr-auto w-100 navbar-search"></form>
-                        <div class="input-group">
-                          <div class="input-group-append">
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </h6>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                          <tr>
-                              <th>Post_no</th>
-                              <th>Farm_no</th>
-                              <th>Farm_name</th>
-                              <th>Farm_soil</th>
-                              <th>Farm_scale</th>
-                              <th>Contrac_Term</th>
-                              <th>Price(만원)/unit</th>
-                              <th>Post_state</th>
-                              </tr>
-                      </thead>
-                     </table>
-                      <p class="text-gray-200 p-3 bg-dark m-0">
-                          SELECT    [ reg_no, registered_farm.f_no, f_name,Ef_Capacity,Cr_Name, reg_price, reg_state ]
-                          <br>FROM    [ Registered_Farm INNER JOIN Experience_Farm
-                              on Registered_Farm.f_no = Experience_Farm.f_no INNER JOINT Crop on Experience_Farm.cr_id = Crop.cr_id ]
-                              <br>ORER BY    [ reg_date desc ]
-    
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                </div>
             
     
         <!-- /.container-fluid -->
