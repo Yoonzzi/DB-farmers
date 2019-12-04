@@ -63,8 +63,9 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">What do you want:</h6>
-              <a class="collapse-item" href="Rental_Farm.html">Rental Farm</a>
-              <a class="collapse-item" href="Ex_Farm.html">Experience Farm</a>
+              <a class="collapse-item" href="Rental_Farm.html">Registered Rental Farm</a>
+              <a class="collapse-item" href="Ex_Farm.html">Registered Experience Farm</a>
+              <a class="collapse-item" href="All_Farm.html">All Farm list</a>
             </div>
           </div>
         </li>
@@ -79,7 +80,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">What do you want:</h6>
               <a class="collapse-item" href="Crop_List">Crop List</a>
-              <a class="collapse-item" href="Cultivation_Info.html">Cultivation Info</a>
+              <a class="collapse-item" href="Cultivation_Info.html">Cultivation info</a>
               <a class="collapse-item" href="Recommend_Crop.html">Recommendation Crop</a>
               <a class="collapse-item" href="Warning.html">Warning</a>
             </div>
@@ -96,7 +97,7 @@
   
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="blank.html">
+            <a class="nav-link" href="Farm_Log.html">
               <i class="fas fa-fw fas fa-folder-open"></i>
               <span>Farm logs</span></a>
           </li>
@@ -126,6 +127,10 @@
       </ul>
       <!-- End of Sidebar -->
   
+
+
+
+
       <!-- Content Wrapper -->
       <div id="content-wrapper" class="d-flex flex-column">
   
@@ -134,14 +139,23 @@
   
           <!-- Topbar -->
           <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-  
+     <!-- Topbar Search -->
+     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <div class="input-group">
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+          </button>
+        </div>
+      </div>
+    </form>
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
             </button>
   
         
-  
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
   
@@ -280,30 +294,31 @@
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                  </a>
-                </div>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Profile Setting
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-cogs fa-file-signature fa-fw mr-2 text-gray-400"></i>
+                      My Contract
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Activity Log
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Logout
+                    </a>
+                  </div>
               </li>
   
             </ul>
   
           </nav>
           <!-- End of Topbar -->
+
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
