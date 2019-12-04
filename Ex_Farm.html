@@ -350,15 +350,15 @@
                       <th>Farm_Province</th>
                       <th>Farm_City</th>
                       <tr><!-- 첫번째 줄 시작 -->
-                          <td>중랑천 자투리 텃밭</td>
+                          <td>건국농원</td>
                           <td>서울</td>
                           <td>광진구</td>
                         </tr>
                         </table>
                     </p>
                     <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ F_name, Lc_province, Lc_city ]
-                        <br>FROM [ (SELECT F_No, F_Name, experience_farm.lc_no, 
-                        <br>&emsp;&emsp;&emsp;&emsp;Lc_Province, Lc_City
+                        <br>FROM [ (SELECT F_No,F_Name,Ef_Capacity,experience_farm.lc_no, 
+                        <br>&emsp;&emsp;&emsp;&emsp;Lc_Province,Lc_City
                         <br>&emsp;&emsp;&emsp;&emsp;FROM experience_farm INNER JOIN location ON 
                         <br>&emsp;&emsp;&emsp;&emsp;experience_farm.Lc_No = location.lc_no) AS experience
                         <br>&emsp;&emsp;&emsp;&emsp; INNER JOIN registered_farm on 
@@ -368,7 +368,9 @@
                         <br>&emsp;&emsp;&emsp;&emsp;AND us_id= 'godjanghyuk77' 
                         <br>&emsp;&emsp;&emsp;&emsp;AND reg_state = 'POSSIBLE' ]
                         <br>GROUP BY [ fr.f_no ]
-                        <br>ORDER BY [ reg_date ] DESC limit 1</span>
+                        <br>ORDER BY [ reg_date ] DESC limit 1
+
+                      </span>
                     </p>
                   
                 </div>
@@ -391,18 +393,20 @@
                         <th>Farm_Name</th>
                         <th>Rate</th>
                         <tr><!-- 첫번째 줄 시작 -->
-                            <td>0000</td>
-                            <td>몇점.</td>
+                            <td>에덴정원</td>
+                            <td>5.000</td>
                         
                         </tr><!-- 첫번째 줄 끝 -->
                           </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ f_name, avg(fr_score) as Rating  ]
-                        <br>FROM [ farm_rating fr INNER JOIN total_farm tf
-                        <br>&emsp;&emsp;&emsp;&emsp; ON fr.f_no = tf.f_no ]
-                        <br>WHERE [ Ef_Capacity is not null ]
-                        <br>GROUP BY [ fr.f_no ]
-                        <br>ORDER BY [ fr_score ] DESC </span>
+                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> 
+                        SELECT f_name, avg(fr_score) as Rating  
+FROM farm_rating fr INNER JOIN total_farm tf
+ON fr.f_no = tf.f_no 
+WHERE  Ef_Capacity is not null 
+GROUP BY  fr.f_no 
+ORDER BY  avg(fr_score) DESC
+                      </span>
                     </p>
 
                 </div>
