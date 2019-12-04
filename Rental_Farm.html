@@ -411,18 +411,23 @@
                     <p></p>
                     <table border="2" width = "100%" align = center>
                         <th>Farm_Name</th>
-                        <th>뭐로하지</th>
+                        <th>Location_Province</th>
+                        <th>Location_City</th>
+                        <th>Post_Date</th>
                         <tr><!-- 첫번째 줄 시작 -->
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
+                            <td>송정 새마을 주말농장</td>
+                            <td>경기</td>
+                            <th>가평군</th>
+                            <th>2019-12-01</th>
                         </tr><!-- 첫번째 줄 끝 -->
-                        <tr><!-- 두번째 줄 시작 -->
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
-                        </tr><!-- 두번째 줄 끝 -->
                           </table>
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
+                    <p class="text-gray-200 p-3 bg-dark m-0">.SELECT [ f_name, lc_provice, lc_city 
+                        <br>From registered_farm re INNER JOIN total_farm tt ON re.f_no = tt.f_no
+                        INNER JOIN location lo ON tt.lc_no = lo.lc_no
+                        <br>WHERE rf_openterm is not null and Reg_State = 'possible'
+                        <br>ORDER BY Reg_Date DESC LIMIT 1
+                      </p>
 
                 </div>
               </div>
