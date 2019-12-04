@@ -496,93 +496,59 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-1 text-gray-800">Color Utilities</h1>
-          <p class="mb-4">Bootstrap's default utility classes can be found on the official <a href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities below were created to extend this theme past the default utility classes built into Bootstrap's framework.</p>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- First Column -->
-            <div class="col-lg-4">
-
-              <!-- Custom Text Color Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Text Color Utilities</h6>
+          <!-- DataTales private farm Example -->
+          <div class="card shadow mb-4">
+            
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">All farm list
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                  <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                <div class="card-body">
-                  <p class="text-gray-100 p-3 bg-dark m-0">.text-gray-100</p>
-                  <p class="text-gray-200 p-3 bg-dark m-0">.text-gray-200</p>
-                  <p class="text-gray-300 p-3 bg-dark m-0">.text-gray-300</p>
-                  <p class="text-gray-400 p-3 bg-dark m-0">.text-gray-400</p>
-                  <p class="text-gray-500 p-3 m-0">.text-gray-500</p>
-                  <p class="text-gray-600 p-3 m-0">.text-gray-600</p>
-                  <p class="text-gray-700 p-3 m-0">.text-gray-700</p>
-                  <p class="text-gray-800 p-3 m-0">.text-gray-800</p>
-                  <p class="text-gray-900 p-3 m-0">.text-gray-900</p>
-                </div>
-              </div>
-
-              <!-- Custom Font Size Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Font Size Utilities</h6>
-                </div>
-                <div class="card-body">
-                  <p class="text-xs">.text-xs</p>
-                  <p class="text-lg mb-0">.text-lg</p>
-                </div>
-              </div>
-
+              </h6>
             </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Farm_No</th>
+                      <th>Farm_Name</th>
+                      <th>Farm_Soil</th>
+                      <th>Farm_Scale</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+              
+                      </tr>
+                      </tbody>
+                    </tbody>
+                  </table>
+                  <p class="text-gray-200 p-3 bg-dark m-0">
+                    SELECT    [ reg_no, registered_farm.f_no, f_name,Ef_Capacity,Cr_Name, reg_price, reg_state ]
+                    <br>FROM    [ Registered_Farm INNER JOIN Experience_Farm
+                        on Registered_Farm.f_no = Experience_Farm.f_no INNER JOINT Crop on Experience_Farm.cr_id = Crop.cr_id ]
+                        <br>ORER BY    [ reg_date desc ]
 
-            <!-- Second Column -->
-            <div class="col-lg-4">
-
-              <!-- Background Gradient Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Background Gradient Utilities</h6>
-                </div>
-                <div class="card-body">
-                  <div class="px-3 py-5 bg-gradient-primary text-white">.bg-gradient-primary</div>
-                  <div class="px-3 py-5 bg-gradient-success text-white">.bg-gradient-success</div>
-                  <div class="px-3 py-5 bg-gradient-info text-white">.bg-gradient-info</div>
-                  <div class="px-3 py-5 bg-gradient-warning text-white">.bg-gradient-warning</div>
-                  <div class="px-3 py-5 bg-gradient-danger text-white">.bg-gradient-danger</div>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Third Column -->
-            <div class="col-lg-4">
-
-              <!-- Grayscale Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Custom Grayscale Background Utilities</h6>
-                </div>
-                <div class="card-body">
-                  <div class="p-3 bg-gray-100">.bg-gray-100</div>
-                  <div class="p-3 bg-gray-200">.bg-gray-200</div>
-                  <div class="p-3 bg-gray-300">.bg-gray-300</div>
-                  <div class="p-3 bg-gray-400">.bg-gray-400</div>
-                  <div class="p-3 bg-gray-500 text-white">.bg-gray-500</div>
-                  <div class="p-3 bg-gray-600 text-white">.bg-gray-600</div>
-                  <div class="p-3 bg-gray-700 text-white">.bg-gray-700</div>
-                  <div class="p-3 bg-gray-800 text-white">.bg-gray-800</div>
-                  <div class="p-3 bg-gray-900 text-white">.bg-gray-900</div>
+                </p>
                 </div>
               </div>
             </div>
-
-          </div>
-
-        </div>
+            
+      
         <!-- /.container-fluid -->
-
+        
       </div>
       <!-- End of Main Content -->
 
@@ -590,8 +556,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; 2019 Enterprised DB Modeiling : DB Farmers
-            </span>
+            <span>Copyright &copy; 2019 Enterprised DB Modeiling : DB Farmers</span>
           </div>
         </div>
       </footer>
@@ -636,6 +601,14 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+ <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+ <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+ <!-- Page level custom scripts -->
+ <script src="js/demo/datatables-demo.js"></script>
+   
 
 </body>
 
