@@ -97,7 +97,7 @@
   
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="blank.html">
+            <a class="nav-link" href="Farm_Log.html">
               <i class="fas fa-fw fas fa-folder-open"></i>
               <span>Farm logs</span></a>
           </li>
@@ -139,7 +139,17 @@
   
           <!-- Topbar -->
           <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-  
+     <!-- Topbar Search -->
+     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <div class="input-group">
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+          </button>
+        </div>
+      </div>
+    </form>
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
@@ -332,23 +342,34 @@
                 </div>
                 <div class="card-body">
                     <div class= "img-center"></div>
-                    <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F182644494F9A9B4232" title="체험농장1" style="width: 100%; height: 150px;" aline>
+                    <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F182644494F9A9B4232" title="주말농장1" style="width: 100%; height: 150px;" aline>
                   <p></p>
                   <p></p>
                   <table border="2" width = "100%" align = center>
                       <th>Farm_Name</th>
-                      <th>뭐로하지</th>
+                      <th>Farm_Province</th>
+                      <th>Farm_City</th>
                       <tr><!-- 첫번째 줄 시작 -->
-                          <td>첫번째 칸</td>
-                          <td>두번째 칸</td>
-                      </tr><!-- 첫번째 줄 끝 -->
-                      <tr><!-- 두번째 줄 시작 -->
-                          <td>첫번째 칸</td>
-                          <td>두번째 칸</td>
-                      </tr><!-- 두번째 줄 끝 -->
+                          <td>중랑천 자투리 텃밭</td>
+                          <td>서울</td>
+                          <td>광진구</td>
+                        </tr>
                         </table>
                     </p>
-                  <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
+                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ F_name, Lc_province, Lc_city ]
+                        <br>FROM [ (SELECT F_No, F_Name, experience_farm.lc_no, 
+                        <br>&emsp;&emsp;&emsp;&emsp;Lc_Province, Lc_City
+                        <br>&emsp;&emsp;&emsp;&emsp;FROM experience_farm INNER JOIN location ON 
+                        <br>&emsp;&emsp;&emsp;&emsp;experience_farm.Lc_No = location.lc_no) AS experience
+                        <br>&emsp;&emsp;&emsp;&emsp; INNER JOIN registered_farm on 
+                        <br>&emsp;&emsp;&emsp;&emsp;experience.F_no=registered_farm.F_No,user ]
+                        <br>WHERE [ us_province = Lc_province 
+                        <br>&emsp;&emsp;&emsp;&emsp;AND us_city = lc_city 
+                        <br>&emsp;&emsp;&emsp;&emsp;AND us_id= 'godjanghyuk77' 
+                        <br>&emsp;&emsp;&emsp;&emsp;AND reg_state = 'POSSIBLE' ]
+                        <br>GROUP BY [ fr.f_no ]
+                        <br>ORDER BY [ reg_date ] DESC limit 1</span>
+                    </p>
                   
                 </div>
               </div>
@@ -366,22 +387,24 @@
                     <img src="http://danmee.chosun.com/site/data/img_dir/2014/07/14/2014071402469_0.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
                     <p></p>
                     <p></p>
-                    <table border="2" width = "100%" align = center>
+                    <table border="2" width = "100%"" align = center>
                         <th>Farm_Name</th>
-                        <th>뭐로하지</th>
+                        <th>Rate</th>
                         <tr><!-- 첫번째 줄 시작 -->
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
+                            <td>0000</td>
+                            <td>몇점.</td>
+                        
                         </tr><!-- 첫번째 줄 끝 -->
-                        <tr><!-- 두번째 줄 시작 -->
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
-                        </tr><!-- 두번째 줄 끝 -->
-                          </table>
+                          </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
-                   
-                 
+                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ f_name, avg(fr_score) as Rating  ]
+                        <br>FROM [ farm_rating fr INNER JOIN total_farm tf
+                        <br>&emsp;&emsp;&emsp;&emsp; ON fr.f_no = tf.f_no ]
+                        <br>WHERE [ Ef_Capacity is not null ]
+                        <br>GROUP BY [ fr.f_no ]
+                        <br>ORDER BY [ fr_score ] DESC </span>
+                    </p>
+
                 </div>
               </div>
 
@@ -393,26 +416,29 @@
               <!-- Grayscale Utilities -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">New registered Farm</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">New Registered Farm</h6>
                 </div>
                 <div class="card-body">
                     <img src="http://image.auction.co.kr/itemimage/17/c1/0a/17c10aa256.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
                     <p></p>
                     <p></p>
-                    <table border="2" width = "100%" align = center>
+                    <table border="2" width = "100%"" align = center>
+                        <th>Post_No</th>
                         <th>Farm_Name</th>
-                        <th>뭐로하지</th>
                         <tr><!-- 첫번째 줄 시작 -->
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
+                            <td>RPN0015</td>
+                            <td>송정 새마을 주말농장</td>
+                        
                         </tr><!-- 첫번째 줄 끝 -->
-                        <tr><!-- 두번째 줄 시작 -->
-                            <td>첫번째 칸</td>
-                            <td>두번째 칸</td>
-                        </tr><!-- 두번째 줄 끝 -->
-                          </table>
+                          </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
+                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ reg_no, Farm_Name ]
+                        <br>FROM [ registered_farm rf INNER JOIN total_farm tf 
+                        <br>&emsp;&emsp;&emsp;&emsp; ON rf.f_no = tf.f_no ]
+                        <br>WHERE [ Ef_Capacity is not null AND 
+                        <br>&emsp;&emsp;&emsp;&emsp;Reg_State = 'possible' ]
+                        <br>ORDER BY [ Reg_Date ] DESC LIMIT 1</span>
+                    </p>
 
                 </div>
               </div>
@@ -448,204 +474,285 @@
                   <thead>
                       <tr>
                           <th>Post_no</th>
-                          <th>Farm_no</th>
+                      
+                          
                           <th>Farm_name</th>
-                          <th>Capacity</th>
-                          <th>Crop</th>
-                          <th>Price/4 person</th>
-                          <th>Post_state</th>
+                          <th>Farm_Province</th>
+                          <th>Farm_city</th>
+                          <th>Farm_soil</th>
+                          <th>Farm_scale</th>
+                        
+                          <th>Price(만원)/unit</th>
+                         
                           </tr>
                   </thead>
                   <tbody>
                       <tr>
+                          <th>RPN0045</th>
+                          <th>성남시민생태농원</th>
+                          <th>경기</th>
+                          <th>성남시</th>
+                          <th>loam</th>
+                          <th>1000</th>
+                          <th>3</th>
+                          <th>토마토</th>
+                          <th>200</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0046</th>
+                          <th>분당자연농원</th>
+                          <th>경기</th>
+                          <th>성남시</th>
+                          <th>sand</th>
+                          <th>1200</th>
+                          <th>5</th>
+                          <th>고구마</th>
+                          <th>150</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0047</th>
+                          <th>클라인가르텐</th>
+                          <th>경기</th>
+                          <th>용인시</th>
+                          <th>clay</th>
+                          <th>2000</th>
+                          <th>6</th>
+                          <th>포도</th>
+                          <th>250</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0048</th>
+                          <th>장수자연</th>
+                          <th>경기</th>
+                          <th>용인시</th>
+                          <th>clay</th>
+                          <th>2500</th>
+                          <th>4</th>
+                          <th>사과</th>
+                          <th>250</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0049</th>
+                          <th>캐리비안캠프</th>
+                          <th>경기</th>
+                          <th>용인시</th>
+                          <th>clay</th>
+                          <th>2000</th>
+                          <th>5</th>
+                          <th>사과</th>
+                          <th>200</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0050</th>
+                          <th>수진그린</th>
+                          <th>경기</th>
+                          <th>용인시</th>
+                          <th>clay</th>
+                          <th>1200</th>
+                          <th>7</th>
+                          <th>포도</th>
+                          <th>150</th>
+                          </tr>
+                          <tr>
                           <th>RPN0052</th>
-<th>FN0026</th>
-<th>담다헌농장</th>
-<th>300</th>
-<th>고구마</th>
-<th>7</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0051</th>
-<th>FN0025</th>
-<th>숲속시현농장</th>
-<th>300</th>
-<th>토마토</th>
-<th>5</th>
-<th>FINISHED</th>
-</tr>
-<tr>
-<th>RPN0070</th>
-<th>FN0089</th>
-<th>한마음이랑</th>
-<th>180</th>
-<th>고추</th>
-<th>4</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0068</th>
-<th>FN0078</th>
-<th>자생화를 사랑하는 사람들</th>
-<th>300</th>
-<th>토마토</th>
-<th>7</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0069</th>
-<th>FN0083</th>
-<th>에덴농원</th>
-<th>100</th>
-<th>당근</th>
-<th>5</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0049</th>
-<th>FN0020</th>
-<th>캐리비안캠프</th>
-<th>200</th>
-<th>사과</th>
-<th>5</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0067</th>
-<th>FN0075</th>
-<th>좋은이웃</th>
-<th>100</th>
-<th>당근</th>
-<th>3</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0048</th>
-<th>FN0018</th>
-<th>장수자연</th>
-<th>250</th>
-<th>사과</th>
-<th>4</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0060</th>
-<th>FN0045</th>
-<th>백송</th>
-<th>50</th>
-<th>고구마</th>
-<th>5</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0066</th>
-<th>FN0074</th>
-<th>여러분농장</th>
-<th>300</th>
-<th>고구마</th>
-<th>4</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0063</th>
-<th>FN0063</th>
-<th>끝셈무지개농원</th>
-<th>250</th>
-<th>토마토</th>
-<th>5</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0065</th>
-<th>FN0067</th>
-<th>바람들이농장</th>
-<th>300</th>
-<th>사과</th>
-<th>5</th>
-<th>FINISHED</th>
-</tr>
-<tr>
-<th>RPN0058</th>
-<th>FN0043</th>
-<th>우보</th>
-<th>50</th>
-<th>고구마</th>
-<th>6</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0047</th>
-<th>FN0015</th>
-<th>클라인가르텐</th>
-<th>250</th>
-<th>포도</th>
-<th>6</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0062</th>
-<th>FN0052</th>
-<th>영심</th>
-<th>50</th>
-<th>당근</th>
-<th>6</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0061</th>
-<th>FN0051</th>
-<th>자연애뜰</th>
-<th>50</th>
-<th>토마토</th>
-<th>4</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0050</th>
-<th>FN0022</th>
-<th>수진그린</th>
-<th>150</th>
-<th>포도</th>
-<th>7</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0064</th>
-<th>FN0064</th>
-<th>서해농장</th>
-<th>200</th>
-<th>포도</th>
-<th>7</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0046</th>
-<th>FN0007</th>
-<th>분당자연농원</th>
-<th>150</th>
-<th>고구마</th>
-<th>5</th>
-<th>POSSIBLE</th>
-</tr>
-<tr>
-<th>RPN0045</th>
-<th>FN0002</th>
-<th>성남시민생태농원</th>
-<th>200</th>
-<th>토마토</th>
-<th>3</th>
-<th>POSSIBLE</th>
+                          <th>담다헌농장</th>
+                          <th>경기</th>
+                          <th>의정부시</th>
+                          <th>sand</th>
+                          <th>3306</th>
+                          <th>7</th>
+                          <th>고구마</th>
+                          <th>300</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0053</th>
+                          <th>도토리</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>loam</th>
+                          <th>1,200</th>
+                          <th>4</th>
+                          <th>고추</th>
+                          <th>100</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0054</th>
+                          <th>에덴정원</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>sand</th>
+                          <th>1,300</th>
+                          <th>5</th>
+                          <th>고구마</th>
+                          <th>120</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0055</th>
+                          <th>찬우물</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>loam</th>
+                          <th>2,000</th>
+                          <th>6</th>
+                          <th>당근</th>
+                          <th>150</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0057</th>
+                          <th>돌풍</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>sand</th>
+                          <th>10,000</th>
+                          <th>5</th>
+                          <th>고구마</th>
+                          <th>300</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0058</th>
+                          <th>우보</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>sand</th>
+                          <th>500</th>
+                          <th>6</th>
+                          <th>고구마</th>
+                          <th>50</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0059</th>
+                          <th>소나무</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>sand</th>
+                          <th>4,700</th>
+                          <th>8</th>
+                          <th>고구마</th>
+                          <th>200</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0060</th>
+                          <th>백송</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>sand</th>
+                          <th>900</th>
+                          <th>5</th>
+                          <th>고구마</th>
+                          <th>50</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0061</th>
+                          <th>자연애뜰</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>loam</th>
+                          <th>340</th>
+                          <th>4</th>
+                          <th>토마토</th>
+                          <th>50</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0062</th>
+                          <th>영심</th>
+                          <th>경기</th>
+                          <th>고양시</th>
+                          <th>loam</th>
+                          <th>400</th>
+                          <th>6</th>
+                          <th>당근</th>
+                          <th>50</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0063</th>
+                          <th>끝셈무지개농원</th>
+                          <th>경기</th>
+                          <th>안산시</th>
+                          <th>loam</th>
+                          <th>3966</th>
+                          <th>5</th>
+                          <th>토마토</th>
+                          <th>250</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0064</th>
+                          <th>서해농장</th>
+                          <th>경기</th>
+                          <th>안산시</th>
+                          <th>clay</th>
+                          <th>2644</th>
+                          <th>7</th>
+                          <th>포도</th>
+                          <th>200</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0066</th>
+                          <th>여러분농장</th>
+                          <th>경기</th>
+                          <th>시흥시</th>
+                          <th>sand</th>
+                          <th>6000</th>
+                          <th>4</th>
+                          <th>고구마</th>
+                          <th>300</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0067</th>
+                          <th>좋은이웃</th>
+                          <th>경기</th>
+                          <th>시흥시</th>
+                          <th>sand</th>
+                          <th>1650</th>
+                          <th>3</th>
+                          <th>당근</th>
+                          <th>100</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0068</th>
+                          <th>자생화를 사랑하는 사람들</th>
+                          <th>경기</th>
+                          <th>시흥시</th>
+                          <th>loam</th>
+                          <th>6060</th>
+                          <th>7</th>
+                          <th>토마토</th>
+                          <th>300</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0069</th>
+                          <th>에덴농원</th>
+                          <th>경기</th>
+                          <th>시흥시</th>
+                          <th>loam</th>
+                          <th>1650</th>
+                          <th>5</th>
+                          <th>당근</th>
+                          <th>100</th>
+                          </tr>
+                          <tr>
+                          <th>RPN0070</th>
+                          <th>한마음이랑</th>
+                          <th>경기</th>
+                          <th>시흥시</th>
+                          <th>loam</th>
+                          <th>2650</th>
+                          <th>4</th>
+                          <th>고추</th>
+                          <th>180</th>
+                          
                           </tr>
                       </tbody>
                     </tbody>
                   </table>
                   <p class="text-gray-200 p-3 bg-dark m-0">
-                      SELECT    [ reg_no, registered_farm.f_no, f_name, f_soil, f_scale, rf_openterm, reg_price, reg_state ]
-                      <br>FROM    [ Registered_Farm INNER JOIN Rental_Farm
-                          on Registered_Farm.f_no = Rental_Farm.f_no ]
-                          <br>ORER BY    [ reg_date desc ]
-  
+                      SELECT    [ reg_no, f_name, Lc_province, lc_city, f_soil, f_scale, reg_price, cr_name, ef_capacity ]
+                      <br>FROM    [ Registered_Farm INNER JOIN total_farm ON Registered_Farm.f_no = total_farm.f_no 
+                      <br>&emsp;&emsp;&emsp;&emsp;INNER JOIN location ON total_farm.lc_no = location.lc_no 
+                      <br>&emsp;&emsp;&emsp;&emsp;INNER JOIN crop
+                      ON total_farm.cr_id = crop.cr_id]
+                          <br>WHERE  [ reg_state ='possible' AND Ef_Capacity IS NOT NULL ]
+
+
                   </p>
                 </div>
               </div>
