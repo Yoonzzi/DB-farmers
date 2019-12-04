@@ -63,8 +63,9 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">What do you want:</h6>
-              <a class="collapse-item" href="Rental_Farm.html">Rental Farm</a>
-              <a class="collapse-item" href="Ex_Farm.html">Experience Farm</a>
+              <a class="collapse-item" href="Rental_Farm.html">Registered Rental Farm</a>
+              <a class="collapse-item" href="Ex_Farm.html">Registered Experience Farm</a>
+              <a class="collapse-item" href="All_Farm.html">All Farm list</a>
             </div>
           </div>
         </li>
@@ -96,7 +97,7 @@
   
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="blank.html">
+            <a class="nav-link" href="Farm_Log.html">
               <i class="fas fa-fw fas fa-folder-open"></i>
               <span>Farm logs</span></a>
           </li>
@@ -126,6 +127,10 @@
       </ul>
       <!-- End of Sidebar -->
   
+
+
+
+
       <!-- Content Wrapper -->
       <div id="content-wrapper" class="d-flex flex-column">
   
@@ -134,6 +139,17 @@
   
           <!-- Topbar -->
           <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+               <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                  <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
   
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -141,7 +157,6 @@
             </button>
   
         
-  
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
   
@@ -280,24 +295,24 @@
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
-                  </a>
-                </div>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Profile Setting
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-cogs fa-file-signature fa-fw mr-2 text-gray-400"></i>
+                      My Contract
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Activity Log
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Logout
+                    </a>
+                  </div>
               </li>
   
             </ul>
@@ -305,89 +320,276 @@
           </nav>
           <!-- End of Topbar -->
 
+
+
+
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+        
           <!-- Page Heading -->
-          <h1 class="h3 mb-1 text-gray-800">Other Utilities</h1>
-          <p class="mb-4">Bootstrap's default utility classes can be found on the official <a href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities below were created to extend this theme past the default utility classes built into Bootstrap's framework.</p>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <div class="col-lg-6">
-
-              <!-- Overflow Hidden -->
-              <div class="card mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Overflow Hidden Utilty</h6>
-                </div>
-                <div class="card-body">
-                  Use <code>.o-hidden</code> to set the overflow property of any element to hidden.
-                </div>
-              </div>
-
-              <!-- Progress Small -->
-              <div class="card mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Progress Small Utility</h6>
-                </div>
-                <div class="card-body">
-                  <div class="mb-1 small">Normal Progress Bar</div>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <div class="mb-1 small">Small Progress Bar</div>
-                  <div class="progress progress-sm mb-2">
-                    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  Use the <code>.progress-sm</code> class along with <code>.progress</code>
-                </div>
-              </div>
-
-              <!-- Dropdown No Arrow -->
-              <div class="card mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Dropdown - No Arrow</h6>
-                </div>
-                <div class="card-body">
-                  <div class="dropdown no-arrow mb-4">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown (no arrow)
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+        
+                  <!-- DataTales private farm Example -->
+          <div class="card shadow mb-4">
+            
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">All Crop list in South Korea
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                  <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  Add the <code>.no-arrow</code> class alongside the <code>.dropdown</code>
+                  </form>
+                </div>
+              </h6>
+            </div>
+            
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Farm_No</th>
+                      <th>Farm_Name</th>
+                      <th>Farm_Soil</th>
+                      <th>Farm_Scale</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>FN0001</th>
+                      <th>찬우물골농원</th>
+                      <th>sand</th>
+                      <th>2500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0002</th>
+                      <th>성남시민생태농원</th>
+                      <th>silt</th>
+                      <th>1000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0003</th>
+                      <th>논골주말농장</th>
+                      <th>sand</th>
+                      <th>1000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0004</th>
+                      <th>고등주말농장</th>
+                      <th>sand</th>
+                      <th>1500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0006</th>
+                      <th>둔전주말농장</th>
+                      <th>sand</th>
+                      <th>2500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0007</th>
+                      <th>분당자연농원</th>
+                      <th>silt</th>
+                      <th>1200</th>
+                      </tr>
+                      <tr>
+                      <th>FN0009</th>
+                      <th>쌈지주말농장</th>
+                      <th>sand</th>
+                      <th>5000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0010</th>
+                      <th>여수동 주말농장</th>
+                      <th>silt</th>
+                      <th>2500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0011</th>
+                      <th>여수 주말농장</th>
+                      <th>silt</th>
+                      <th>2000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0015</th>
+                      <th>클라인가르텐</th>
+                      <th>sand</th>
+                      <th>2500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0016</th>
+                      <th>양달농원</th>
+                      <th>sand</th>
+                      <th>1200</th>
+                      </tr>
+                      <tr>
+                      <th>FN0017</th>
+                      <th>삼막곡</th>
+                      <th>sand</th>
+                      <th>1000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0019</th>
+                      <th>싱글벙글</th>
+                      <th>loam</th>
+                      <th>1500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0021</th>
+                      <th>우리들</th>
+                      <th>silt</th>
+                      <th>2500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0022</th>
+                      <th>수진그린</th>
+                      <th>silt</th>
+                      <th>1200</th>
+                      </tr>
+                      <tr>
+                      <th>FN0023</th>
+                      <th>고산농장</th>
+                      <th>silt</th>
+                      <th>3306</th>
+                      </tr>
+                      <tr>
+                      <th>FN0024</th>
+                      <th>신산농장</th>
+                      <th>loam</th>
+                      <th>3306</th>
+                      </tr>
+                      <tr>
+                      <th>FN0026</th>
+                      <th>담다헌농장</th>
+                      <th>sand</th>
+                      <th>3306</th>
+                      </tr>
+                      <tr>
+                      <th>FN0041</th>
+                      <th>수역이농장</th>
+                      <th>loam</th>
+                      <th>800</th>
+                      </tr>
+                      <tr>
+                      <th>FN0043</th>
+                      <th>우보</th>
+                      <th>silt</th>
+                      <th>500</th>
+                      </tr>
+                      <tr>
+                      <th>FN0045</th>
+                      <th>백송</th>
+                      <th>silt</th>
+                      <th>900</th>
+                      </tr>
+                      <tr>
+                      <th>FN0048</th>
+                      <th>원흥역농장</th>
+                      <th>sand</th>
+                      <th>800</th>
+                      </tr>
+                      <tr>
+                      <th>FN0050</th>
+                      <th>산울안민속농원</th>
+                      <th>silt</th>
+                      <th>200</th>
+                      </tr>
+                      <tr>
+                      <th>FN0052</th>
+                      <th>영심</th>
+                      <th>sand</th>
+                      <th>400</th>
+                      </tr>
+                      <tr>
+                      <th>FN0053</th>
+                      <th>여러분농장</th>
+                      <th>silt</th>
+                      <th>6000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0056</th>
+                      <th>버팀목농원</th>
+                      <th>sand</th>
+                      <th>2000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0057</th>
+                      <th>자생화를 사랑하는 사람들</th>
+                      <th>sand</th>
+                      <th>6060</th>
+                      </tr>
+                      <tr>
+                      <th>FN0058</th>
+                      <th>능곡동 시민공동체텃밭</th>
+                      <th>sand</th>
+                      <th>4083</th>
+                      </tr>
+                      <tr>
+                      <th>FN0059</th>
+                      <th>3세대 가족농장 Together</th>
+                      <th>loam</th>
+                      <th>2640</th>
+                      </tr>
+                      <tr>
+                      <th>FN0060</th>
+                      <th>라온텃밭</th>
+                      <th>sand</th>
+                      <th>3000</th>
+                      </tr>
+                      <tr>
+                      <th>FN0063</th>
+                      <th>한어울림 공동체주말농장</th>
+                      <th>loam</th>
+                      <th>1980</th>
+                      </tr>
+                      <tr>
+                      <th>FN0064</th>
+                      <th>바다향기 도시텃밭</th>
+                      <th>sand</th>
+                      <th>12540</th>
+                      </tr>
+                      <tr>
+                      <th>FN0065</th>
+                      <th>은행동 주민자치위원회</th>
+                      <th>silt</th>
+                      <th>1643</th>
+                      </tr>
+                      <tr>
+                      <th>FN0066</th>
+                      <th>은행동 새마을남녀지도자회</th>
+                      <th>silt</th>
+                      <th>1643</th>
+                      </tr>
+                      <tr>
+                      <th>FN0068</th>
+                      <th>한마음이랑</th>
+                      <th>sand</th>
+                      <th>2650</th>
+                      </tr>
+                      </tbody>
+                    </tbody>
+                  </table>
+                  <p class="text-gray-200 p-3 bg-dark m-0">
+                    SELECT    [ reg_no, registered_farm.f_no, f_name,Ef_Capacity,Cr_Name, reg_price, reg_state ]
+                    <br>FROM    [ Registered_Farm INNER JOIN Experience_Farm
+                        on Registered_Farm.f_no = Experience_Farm.f_no INNER JOINT Crop on Experience_Farm.cr_id = Crop.cr_id ]
+                        <br>ORER BY    [ reg_date desc ]
+
+                </p>
                 </div>
               </div>
-
             </div>
-
-            <div class="col-lg-6">
-
-              <!-- Roitation Utilities -->
-              <div class="card">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Rotation Utilities</h6>
-                </div>
-                <div class="card-body text-center">
-                  <div class="bg-primary text-white p-3 rotate-15 d-inline-block my-4">.rotate-15</div>
-                  <hr>
-                  <div class="bg-primary text-white p-3 rotate-n-15 d-inline-block my-4">.rotate-n-15</div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
+            
+      
         <!-- /.container-fluid -->
-
+        
       </div>
       <!-- End of Main Content -->
 
@@ -440,6 +642,14 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+ <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+ <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+ <!-- Page level custom scripts -->
+ <script src="js/demo/datatables-demo.js"></script>
+   
 
 </body>
 
