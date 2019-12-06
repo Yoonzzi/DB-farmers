@@ -332,132 +332,122 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 text-center mb-1 text-gray-800 font-weight-bold">Recommend Experience Farm</h1>
-          <p></p>
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- First Column -->
-            <div class="col-lg-4">
-
-              <!-- Custom Text Color Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Based on your Location</h6>
-                </div>
-                <div class="card-body">
-                    <div class= "img-center"></div>
-                    <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F182644494F9A9B4232" title="주말농장1" style="width: 100%; height: 150px;" aline>
-                  <p></p>
-                  <p></p>
-                  <table border="2" width = "100%" align = center>
-                      <th>Farm_Name</th>
-                      <th>Farm_Province</th>
-                      <th>Farm_City</th>
-                      <tr><!-- 첫번째 줄 시작 -->
-                          <td>건국농원</td>
-                          <td>서울</td>
-                          <td>광진구</td>
-                        </tr>
-                        </table>
-                    </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ F_name, Lc_province, Lc_city ]
-                        <br>FROM [ (SELECT F_No,F_Name,Ef_Capacity,experience_farm.lc_no, 
-                        <br>&emsp;&emsp;&emsp;&emsp;Lc_Province,Lc_City
-                        <br>&emsp;&emsp;&emsp;&emsp;FROM experience_farm INNER JOIN location ON 
-                        <br>&emsp;&emsp;&emsp;&emsp;experience_farm.Lc_No = location.lc_no) AS experience
-                        <br>&emsp;&emsp;&emsp;&emsp; INNER JOIN registered_farm on 
-                        <br>&emsp;&emsp;&emsp;&emsp;experience.F_no=registered_farm.F_No,user ]
-                        <br>WHERE [ us_province = Lc_province 
-                        <br>&emsp;&emsp;&emsp;&emsp;AND us_city = lc_city 
-                        <br>&emsp;&emsp;&emsp;&emsp;AND us_id= 'godjanghyuk77' 
-                        <br>&emsp;&emsp;&emsp;&emsp;AND reg_state = 'POSSIBLE' ]
-                        <br>GROUP BY [ fr.f_no ]
-                        <br>ORDER BY [ reg_date ] DESC limit 1
-
-                      </span>
-                    </p>
-                  
-                </div>
-              </div>
-            </div>
-
-            <!-- Second Column -->
-            <div class="col-lg-4">
-
-              <!-- Background Gradient Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Based on Farm Rating</h6>
-                </div>
-                <div class="card-body">
-                    <img src="http://danmee.chosun.com/site/data/img_dir/2014/07/14/2014071402469_0.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
-                    <p></p>
-                    <p></p>
-                    <table border="2" width = "100%"" align = center>
-                        <th>Farm_Name</th>
-                        <th>Rate</th>
-                        <tr><!-- 첫번째 줄 시작 -->
-                            <td>에덴정원</td>
-                            <td>5.000</td>
-                        
-                        </tr><!-- 첫번째 줄 끝 -->
-                          </table>  
-                      </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> 
-                        SELECT f_name, avg(fr_score) as Rating  
-FROM farm_rating fr INNER JOIN total_farm tf
-ON fr.f_no = tf.f_no 
-WHERE  Ef_Capacity is not null 
-GROUP BY  fr.f_no 
-ORDER BY  avg(fr_score) DESC
-                      </span>
-                    </p>
-
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Third Column -->
-            <div class="col-lg-4">
-
-              <!-- Grayscale Utilities -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">New Registered Farm</h6>
-                </div>
-                <div class="card-body">
-                    <img src="http://image.auction.co.kr/itemimage/17/c1/0a/17c10aa256.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
-                    <p></p>
-                    <p></p>
-                    <table border="2" width = "100%"" align = center>
-                        <th>Post_No</th>
-                        <th>Farm_Name</th>
-                        <tr><!-- 첫번째 줄 시작 -->
-                            <td>RPN0052</td>
-                            <td>담다헌 농장</td>
-                        
-                        </tr><!-- 첫번째 줄 끝 -->
-                          </table>  
-                      </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ reg_no, Farm_Name ]
-                        <br>FROM [ registered_farm rf INNER JOIN total_farm tf 
-                        <br>&emsp;&emsp;&emsp;&emsp; ON rf.f_no = tf.f_no ]
-                        <br>WHERE [ Ef_Capacity is not null AND 
-                        <br>&emsp;&emsp;&emsp;&emsp;Reg_State = 'possible' ]
-                        <br>ORDER BY [ Reg_Date ] DESC LIMIT 1</span>
-                    </p>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Page Heading -->
-         
+               <!-- Page Heading -->
+               <h1 class="h3 text-center mb-1 text-gray-800 font-weight-bold">Recommend Experience Farm</h1>
+               <p></p>
+               <!-- Content Row -->
+               <div class="row">
+     
+                 <!-- First Column -->
+                 <div class="col-lg-4">
+     
+                   <!-- Custom Text Color Utilities -->
+                   <div class="card shadow mb-4">
+                     <div class="card-header py-3">
+                       <h6 class="m-0 font-weight-bold text-primary">Based on your Location</h6>
+                     </div>
+                     <div class="card-body">
+                         <div class= "img-center"></div>
+                         <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F182644494F9A9B4232" title="주말농장1" style="width: 100%; height: 150px;" aline>
+                       <p></p>
+                       <p></p>
+                       <table border="2" width = "100%" align = center>
+                           <th class = "text-center">Name</th>
+                           <th class = "text-center">Province</th>
+                           <th class = "text-center">City</th>
+                           <tr class = "text-center"><!-- 첫번째 줄 시작 -->
+                               <td class = "text-center">건국 농원</td>
+                               <td class = "text-center">서울</td>
+                               <td class = "text-center">광진구</td>
+                             </tr>
+                             </table>
+                         </p>
+                         <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ F_name, Lc_province, Lc_city ]
+                             <br>FROM [ (SELECT f_name, experience_farm.Lc_No,  
+                             <br>&emsp;&emsp;&emsp;&emsp;lc_province, lc_city FROM experience_farm 
+                             <br>&emsp;&emsp;&emsp;&emsp;NATURAL JOIN location ) as exf 
+                             <br>&emsp;&emsp;&emsp;&emsp;NATURAL JOIN registered_farm , user ]
+                             <br>WHERE [ us_province = Lc_province 
+                             <br>&emsp;&emsp;&emsp;&emsp;AND us_city = lc_city 
+                             <br>&emsp;&emsp;&emsp;&emsp;AND us_id= 'godjanghyuk77' 
+                             <br>&emsp;&emsp;&emsp;&emsp;AND reg_state = 'POSSIBLE' ]
+                             <br>ORDER BY [ reg_date ] DESC limit 1</span>
+                         </p>
+                       
+                     </div>
+                   </div>
+                 </div>
+     
+                 <!-- Second Column -->
+                 <div class="col-lg-4">
+     
+                   <!-- Background Gradient Utilities -->
+                   <div class="card shadow mb-4">
+                     <div class="card-header py-3">
+                       <h6 class="m-0 font-weight-bold text-primary">Based on Farm Rating</h6>
+                     </div>
+                     <div class="card-body">
+                         <img src="http://danmee.chosun.com/site/data/img_dir/2014/07/14/2014071402469_0.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
+                         <p></p>
+                         <p></p>
+                         <table border="2" width = "100%"" align = center>
+                             <th class = "text-center">Name</th>
+                             <th class = "text-center">Rate</th>
+                             <tr><!-- 첫번째 줄 시작 -->
+                                 <td class = "text-center">에덴 정원</td>
+                                 <td class = "text-center">5.00</td>
+                             
+                             </tr><!-- 첫번째 줄 끝 -->
+                               </table>  
+                           </p>
+                         <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ f_name, avg(fr_score) as Rating ]
+                             <br>FROM [ farm_rating NATURAL JOIN total_farm 
+                             <br>&emsp;&emsp;&emsp;&emsp; NATURAL join registered_farm ]
+                             <br>WHERE [ ef_capacity IS NOT NULL
+                             <br>&emsp;&emsp;&emsp;&emsp; AND reg_state = 'POSSIBLE']
+                             <br>GROUP BY [ f_no  ]
+                             <br>ORDER BY [ rating ] DESC LIMIT 1</span>
+                         </p>
+     
+                     </div>
+                   </div>
+     
+                 </div>
+     
+                 <!-- Third Column -->
+                 <div class="col-lg-4">
+     
+                   <!-- Grayscale Utilities -->
+                   <div class="card shadow mb-4">
+                     <div class="card-header py-3">
+                       <h6 class="m-0 font-weight-bold text-primary">New Registered Farm</h6>
+                     </div>
+                     <div class="card-body">
+                         <img src="http://image.auction.co.kr/itemimage/17/c1/0a/17c10aa256.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
+                         <p></p>
+                         <p></p>
+                         <table border="2" width = "100%"" align = center>
+                             <th class = "text-center">Registered_date</th>
+                             <th class = "text-center">Name</th>
+                             <tr><!-- 첫번째 줄 시작 -->
+                                 <td class = "text-center" >2019-12-06</td>
+                                 <td class = "text-center"> 담다헌 농장</td>
+                             
+                             </tr><!-- 첫번째 줄 끝 -->
+                               </table>  
+                           </p>
+                         <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ reg_date, f_name ]
+                             <br>FROM [ registered_farm NATURAL JOIN total_farm tf 
+                             <br>WHERE [ ef_capacity is not null AND 
+                             <br>&emsp;&emsp;&emsp;&emsp;Reg_State = 'possible' ]
+                             <br>ORDER BY [ Reg_Date ] DESC LIMIT 1</span>
+                         </p>
+     
+                     </div>
+                   </div>
+                 </div>
+     
+               </div>
 
                   <!-- DataTales private farm Example -->
           <div class="card shadow mb-4">
