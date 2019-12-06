@@ -328,10 +328,25 @@
                     <img src="https://i.imgur.com/FZcUkRv.png" title="주말농장1" style="width: 100%; height: 150px;" aline>
                   <p></p>
                   <p></p>
-                 
+                  <table border="2" width = "100%"" align = center>
+                      <th class = "text-center">Name</th>
+                      <th class = "text-center">Rate</th>
+                      <tr><!-- 첫번째 줄 시작 -->
+                          <td class = "text-center">최재웅</td>
+                          <td class = "text-center">5.00</td>
+                      
+                      </tr><!-- 첫번째 줄 끝 -->
+                        </table>  
                     </p>
-                  <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
                   
+                  <p class="text-gray-200 p-3 bg-dark m-0">
+                    SELECT mg_id, mg_name, 
+                    <br> &emsp;&emsp;&emsp;&emsp;avg(Mgr_Score) rate
+                    <br> FROM manager_rating 
+                    <br> &emsp;&emsp;&emsp;NATURAL JOIN manager
+                    <br> GROUP BY Mgr_Score
+                    <br> ORDER BY rate desc
+                  </p>
                 </div>
               </div>
             </div>
@@ -348,10 +363,25 @@
                     <img src="https://i.imgur.com/KPtnggr.png" title="주말농장1" style="width: 100%; height: 150px;" aline>
                     <p></p>
                     <p></p>
-                   
+                    <table border="2" width = "100%"" align = center>
+                        <th class = "text-center">Name</th>
+                        <th class = "text-center">Rate</th>
+                        <tr><!-- 첫번째 줄 시작 -->
+                            <td class = "text-center">신만철</td>
+                            <td class = "text-center">4.00</td>
+                        
+                        </tr><!-- 첫번째 줄 끝 -->
+                          </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
-                   
+                    
+                    <p class="text-gray-200 p-3 bg-dark m-0">
+                      SELECT mg_id, mg_name, 
+                      <br> &emsp;&emsp;&emsp;&emsp;avg(Mgr_Score) rate
+                      <br> FROM manager_rating 
+                      <br> &emsp;&emsp;&emsp;NATURAL JOIN manager
+                      <br> GROUP BY Mgr_Score
+                      <br> ORDER BY rate desc
+                    </p>
                  
                 </div>
               </div>
@@ -370,10 +400,25 @@
                     <img src="https://i.imgur.com/WTEjcxC.png" title="주말농장1" style="width: 100%; height: 150px;" aline>
                     <p></p>
                     <p></p>
-                 
+                    <table border="2" width = "100%"" align = center>
+                        <th class = "text-center">Name</th>
+                        <th class = "text-center">Rate</th>
+                        <tr><!-- 첫번째 줄 시작 -->
+                            <td class = "text-center">전용잔</td>
+                            <td class = "text-center">3.00</td>
+                        
+                        </tr><!-- 첫번째 줄 끝 -->
+                          </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
-
+                    
+                    <p class="text-gray-200 p-3 bg-dark m-0">
+                      SELECT mg_id, mg_name, 
+                      <br> &emsp;&emsp;&emsp;&emsp;avg(Mgr_Score) rate
+                      <br> FROM manager_rating 
+                      <br> &emsp;&emsp;&emsp;NATURAL JOIN manager
+                      <br> GROUP BY Mgr_Score
+                      <br> ORDER BY rate desc
+                    </p>
                 </div>
               </div>
             </div>
@@ -396,19 +441,17 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                       <tr>
-                          <th>Post_no</th>
-                          <th>Farm_no</th>
-                          <th>Farm_name</th>
-                          <th>Farm_soil</th>
-                          <th>Farm_scale</th>
-                          <th>Contrac_Term</th>
-                          <th>Price(만원)/unit</th>
-                          <th>Post_state</th>
+                          <th>Manager_No</th>
+                          <th>Manager_Name</th>
+                          <th>User_ID</th>
+                          <th>Score</th>
+                          <th>Review</th>
                           </tr>
                   </thead>
                  </table>
                   <p class="text-gray-200 p-3 bg-dark m-0">
-                     ]
+                      SELECT [ mg_id, mg_name,us_Id, mgr_score, convert(mgr_review USING utf8) ]
+                      <br> [ FROM manager_rating NATURAL JOIN manager]
 
                   </p>
                 </div>
