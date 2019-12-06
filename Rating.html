@@ -389,31 +389,26 @@
         
 
           <!-- Page Heading -->
-         
-
-                  <!-- DataTales private farm Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">    
-              <h6 class="m-0 font-weight-bold text-primary">Farm Reviews
-                <!-- Dropdown - Messages -->
-              </h6>
-            </div>
-            
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                      <tr>
-                          f_name,us_id, fr_score, CONVERT(fr_review 
+            <!-- DataTales private farm Example -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">    
+                <h6 class="m-0 font-weight-bold text-primary">Farm Review
+                  <!-- Dropdown - Messages -->
+                </h6>
+              </div>
+              
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
                           <th>Farm_Name</th>
                           <th>User_ID</th>
                           <th>Score</th>
                           <th>Review</th>
                           </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      
+                    </thead>
+                    <tbody>
                       <tr>
                       <th>옛골주말농장</th>
                       <th>wlrnz123</th>
@@ -756,27 +751,23 @@
                       <th>5</th>
                       <th>Farm is wide and managed well.</th>
                       </tr>
-
-
-                  </tbody>
-                 </table>
-                  <p class="text-gray-200 p-3 bg-dark m-0">
-                      SELECT [ f_name,us_id, fr_score, CONVERT(fr_review USING utf8) ] 
-
-                      <br> FROM (user NATURAL JOIN farm_rating NATURAL JOIN total_farm)
-
-                  </p>
+                    </tbody>
+                   </table>
+                    <p class="text-gray-200 p-3 bg-dark m-0">
+                        SELECT [ mg_id, mg_name,us_Id, mgr_score, convert(mgr_review USING utf8) ]
+                        <br> [ FROM manager_rating NATURAL JOIN manager]
+  
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            </div>
-            
-
-
-            
-    
-        <!-- /.container-fluid -->
-      </div>
+  
+  
+  
+              
+      
+          <!-- /.container-fluid -->
+        </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
