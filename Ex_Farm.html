@@ -387,7 +387,7 @@
                        <h6 class="m-0 font-weight-bold text-primary">Based on Farm Rating</h6>
                      </div>
                      <div class="card-body">
-                         <img src="http://danmee.chosun.com/site/data/img_dir/2014/07/14/2014071402469_0.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
+                         <img src="http://image.auction.co.kr/itemimage/17/c1/0a/17c10aa256.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
                          <p></p>
                          <p></p>
                          <table border="2" width = "100%"" align = center>
@@ -423,7 +423,7 @@
                        <h6 class="m-0 font-weight-bold text-primary">New Registered Farm</h6>
                      </div>
                      <div class="card-body">
-                         <img src="http://image.auction.co.kr/itemimage/17/c1/0a/17c10aa256.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
+                         <img src="http://danmee.chosun.com/site/data/img_dir/2014/07/14/2014071402469_0.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
                          <p></p>
                          <p></p>
                          <table border="2" width = "100%"" align = center>
@@ -697,12 +697,10 @@
                     </tbody>
                   </table>
                   <p class="text-gray-200 p-3 bg-dark m-0">
-                      SELECT    [ reg_no, f_name, Lc_province, lc_city, f_soil, f_scale, reg_price, cr_name, ef_capacity ]
-                      <br>FROM    [ Registered_Farm INNER JOIN total_farm ON Registered_Farm.f_no = total_farm.f_no 
-                      <br>&emsp;&emsp;&emsp;&emsp;INNER JOIN location ON total_farm.lc_no = location.lc_no 
-                      <br>&emsp;&emsp;&emsp;&emsp;INNER JOIN crop
-                      ON total_farm.cr_id = crop.cr_id]
+                      SELECT    [ reg_no, f_name, Lc_province, lc_city, cr_name, ef_capacity, reg_price, cr_name, ef_capacity ]
+                      <br>FROM    [ Registered_Farm NATURAL JOIN total_farm NATURAL JOIN crop NATURAL JOIN location NATURAL JOIN owner
                           <br>WHERE  [ reg_state ='possible' AND Ef_Capacity IS NOT NULL ]
+                          
 
 
                   </p>
