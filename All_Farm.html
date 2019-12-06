@@ -1176,10 +1176,9 @@
                     </tbody>
                   </table>
                   <p class="text-gray-200 p-3 bg-dark m-0">
-                    SELECT    [ reg_no, registered_farm.f_no, f_name,Ef_Capacity,Cr_Name, reg_price, reg_state ]
-                    <br>FROM    [ Registered_Farm INNER JOIN Experience_Farm
-                        on Registered_Farm.f_no = Experience_Farm.f_no INNER JOINT Crop on Experience_Farm.cr_id = Crop.cr_id ]
-                        <br>ORER BY    [ reg_date desc ]
+                    SELECT    [ f_no, f_name, f_soil, f_scale, Farm_Province, Farm_City, own_name ]
+                    <br>FROM    [ total_farm NATURAL JOIN owner]
+                    
 
                 </p>
                 </div>
