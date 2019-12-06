@@ -352,28 +352,25 @@
                   <p></p>
                   <p></p>
                   <table border="2" width = "100%" align = center>
-                      <th>Farm_Name</th>
-                      <th>Farm_Province</th>
-                      <th>Farm_City</th>
-                      <tr><!-- 첫번째 줄 시작 -->
-                          <td>중랑천 자투리 텃밭</td>
-                          <td>서울</td>
-                          <td>광진구</td>
+                      <th class = "text-center">Name</th>
+                      <th class = "text-center">Province</th>
+                      <th class = "text-center">City</th>
+                      <tr class = "text-center"><!-- 첫번째 줄 시작 -->
+                          <td class = "text-center">중랑천 자투리 텃밭</td>
+                          <td class = "text-center">서울</td>
+                          <td class = "text-center">광진구</td>
                         </tr>
                         </table>
                     </p>
                     <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ F_name, Lc_province, Lc_city ]
-                        <br>FROM [ (SELECT F_No, F_Name, rental_farm.lc_no, 
-                        <br>&emsp;&emsp;&emsp;&emsp;Lc_Province, Lc_City
-                        <br>&emsp;&emsp;&emsp;&emsp;FROM rental_farm INNER JOIN location ON 
-                        <br>&emsp;&emsp;&emsp;&emsp;rental_farm.Lc_No = location.lc_no) AS rental
-                        <br>&emsp;&emsp;&emsp;&emsp; INNER JOIN registered_farm on 
-                        <br>&emsp;&emsp;&emsp;&emsp;rental.F_no=registered_farm.F_No,user ]
+                        <br>FROM [ (SELECT f_no, f_name, rental_farm.lc_no, 
+                        <br>&emsp;&emsp;&emsp;&emsp;lc_province, lc_city FROM rental_farm 
+                        <br>&emsp;&emsp;&emsp;&emsp;NATURAL JOIN location ) as Rental 
+                        <br>&emsp;&emsp;&emsp;&emsp;NATURAL JOIN registered_farm , user ]
                         <br>WHERE [ us_province = Lc_province 
                         <br>&emsp;&emsp;&emsp;&emsp;AND us_city = lc_city 
                         <br>&emsp;&emsp;&emsp;&emsp;AND us_id= 'godjanghyuk77' 
                         <br>&emsp;&emsp;&emsp;&emsp;AND reg_state = 'POSSIBLE' ]
-                        <br>GROUP BY [ fr.f_no ]
                         <br>ORDER BY [ reg_date ] DESC limit 1</span>
                     </p>
                   
@@ -394,21 +391,22 @@
                     <p></p>
                     <p></p>
                     <table border="2" width = "100%"" align = center>
-                        <th>Farm_Name</th>
-                        <th>Rate</th>
+                        <th class = "text-center">Name</th>
+                        <th class = "text-center">Rate</th>
                         <tr><!-- 첫번째 줄 시작 -->
-                            <td>0000</td>
-                            <td>몇점.</td>
+                            <td class = "text-center">파주 희망농장</td>
+                            <td class = "text-center">5.00</td>
                         
                         </tr><!-- 첫번째 줄 끝 -->
                           </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ f_name, avg(fr_score) as Rating  ]
-                        <br>FROM [ farm_rating fr INNER JOIN total_farm tf
-                        <br>&emsp;&emsp;&emsp;&emsp; ON fr.f_no = tf.f_no ]
-                        <br>WHERE [ rf_openterm is not null ]
-                        <br>GROUP BY [ fr.f_no ]
-                        <br>ORDER BY [ fr_score ] DESC </span>
+                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ f_name, avg(fr_score) as Rating ]
+                        <br>FROM [ farm_rating NATURAL JOIN total_farm 
+                        <br>&emsp;&emsp;&emsp;&emsp; NATURAL join registered_farm ]
+                        <br>WHERE [ rf_openterm IS NOT NULL
+                        <br>&emsp;&emsp;&emsp;&emsp; AND reg_state = 'POSSIBLE']
+                        <br>GROUP BY [ total_farm.f_no  ]
+                        <br>ORDER BY [ fr_score and reg_date ] DESC LIMIT 1</span>
                     </p>
 
                 </div>
@@ -429,18 +427,17 @@
                     <p></p>
                     <p></p>
                     <table border="2" width = "100%"" align = center>
-                        <th>Post_No</th>
-                        <th>Farm_Name</th>
+                        <th class = "text-center">Registered_date</th>
+                        <th class = "text-center">Name</th>
                         <tr><!-- 첫번째 줄 시작 -->
-                            <td>RPN0015</td>
-                            <td>송정 새마을 주말농장</td>
+                            <td class = "text-center" >2019-12-01</td>
+                            <td class = "text-center">송정 새마을 주말농장</td>
                         
                         </tr><!-- 첫번째 줄 끝 -->
                           </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ reg_no, Farm_Name ]
-                        <br>FROM [ registered_farm rf INNER JOIN total_farm tf 
-                        <br>&emsp;&emsp;&emsp;&emsp; ON rf.f_no = tf.f_no ]
+                    <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> SELECT [ reg_date, f_name ]
+                        <br>FROM [ registered_farm NATURAL JOIN total_farm tf 
                         <br>WHERE [ rf_openterm is not null AND 
                         <br>&emsp;&emsp;&emsp;&emsp;Reg_State = 'possible' ]
                         <br>ORDER BY [ Reg_Date ] DESC LIMIT 1</span>
@@ -482,13 +479,13 @@
                           <th>Post_no</th>
                       
                           
-                          <th>Farm_name</th>
-                          <th>Farm_Province</th>
-                          <th>Farm_city</th>
+                          <th>Name</th>
+                          <th>Province</th>
+                          <th>City</th>
                           <th>Farm_soil</th>
                           <th>Farm_scale</th>
                         
-                          <th>Price(만원)/unit</th>
+                          <th>Price/unit</th>
                          
                           </tr>
                   </thead>
