@@ -325,13 +325,28 @@
                 </div>
                 <div class="card-body">
                     <div class= "img-center"></div>
-                    <img src="http://www.nurinori.com/nview/eventexperience/465_1.JPG" title="주말농장1" style="width: 100%; height: 150px;" aline>
+                    <img src="https://pbs.twimg.com/media/DclkUsgVQAAfNaA.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
                   <p></p>
                   <p></p>
-                 
+                  <table border="2" width = "100%"" align = center>
+                      <th class = "text-center">Name</th>
+                      <th class = "text-center">Rate</th>
+                      <tr><!-- 첫번째 줄 시작 -->
+                          <td class = "text-center" >원당 텃밭</td>
+                          <td class = "text-center"> 5.00</td>
+                      
+                      </tr><!-- 첫번째 줄 끝 -->
+                        </table>  
                     </p>
-                  <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
+                  <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> 
+                    SELECT [ f_name, avg(fr_score) as rating ]
+                      <br>FROM [ farm_rating NATURAL JOIN total_farm
+                      <br>WHERE [ rf_openterm IS NOT NULL ]
+                      <br>GROUP BY [ farm_rating.f_no ]
+                      <br>ORDER BY [ rating] DESC LIMIT 1</span>
+                  </p>
                   
+
                 </div>
               </div>
             </div>
@@ -345,19 +360,32 @@
                   <h6 class="m-0 font-weight-bold text-primary">BEST Experience Farm</h6>
                 </div>
                 <div class="card-body">
-                    <img src="http://chaeumcamp.com/f/b5155/editor/clBBolJXWo.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
+                    <img src="http://image.auction.co.kr/itemimage/17/c1/0a/17c10aa256.jpg" title="주말농장1" style="width: 100%; height: 150px;" aline>
                     <p></p>
                     <p></p>
-                   
+                    <table border="2" width = "100%"" align = center>
+                        <th class = "text-center">Name</th>
+                        <th class = "text-center">Rate</th>
+                        <tr><!-- 첫번째 줄 시작 -->
+                            <td class = "text-center" >에덴 정원</td>
+                            <td class = "text-center"> 5.00</td>
+                        
+                        </tr><!-- 첫번째 줄 끝 -->
+                          </table>  
                       </p>
-                    <p class="text-gray-200 p-3 bg-dark m-0">.쿼리문</p>
-                   
+                      <p class="text-gray-200 p-3 bg-dark m-0"><span style = "font-size:0.5em"> 
+                          SELECT [ f_name, avg(fr_score) as rating ]
+                            <br>FROM [ farm_rating NATURAL JOIN total_farm
+                            <br>WHERE [ ef_capacity IS NOT NULL ]
+                            <br>GROUP BY [ farm_rating.f_no ]
+                            <br>ORDER BY [ rating ] DESC LIMIT 1</span>
+                        </p>
                  
                 </div>
               </div>
 
             </div>
-
+            </div>
         
 
           <!-- Page Heading -->
@@ -376,19 +404,18 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                       <tr>
-                          <th>Post_no</th>
-                          <th>Farm_no</th>
-                          <th>Farm_name</th>
-                          <th>Farm_soil</th>
-                          <th>Farm_scale</th>
-                          <th>Contrac_Term</th>
-                          <th>Price(만원)/unit</th>
-                          <th>Post_state</th>
+                          f_name,us_id, fr_score, CONVERT(fr_review 
+                          <th>Farm_Name</th>
+                          <th>User_ID</th>
+                          <th>Score</th>
+                          <th>Review</th>
                           </tr>
                   </thead>
                  </table>
                   <p class="text-gray-200 p-3 bg-dark m-0">
-                     ]
+                      SELECT [ f_name,us_id, fr_score, CONVERT(fr_review USING utf8) ] 
+
+                      <br> FROM (user NATURAL JOIN farm_rating NATURAL JOIN total_farm)
 
                   </p>
                 </div>
