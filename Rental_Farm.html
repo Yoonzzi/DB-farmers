@@ -497,8 +497,7 @@
                   </table>
                   <p class="text-gray-200 p-3 bg-dark m-0">
                       SELECT    [ registered_farm.reg_no,total_farm.f_name,lc_province, lc_city, f_soil, f_scale, reg_price,own_name, own_phone ]
-                      <br>FROM    [ registered_farm natural join total_farm natural join location natural join owner 
-                      <br>&emsp;&emsp;&emsp;&emsp;INNER JOIN location ON total_farm.lc_no = location.lc_no ]
+                      <br>FROM    [ registered_farm NATURAL JOIN total_farm NATURAL JOIN location NATURAL JOIN owner]
                           <br>WHERE  [ reg_state ='possible' AND rf_openterm IS NOT NULL ]
                   </p>
                 </div>
